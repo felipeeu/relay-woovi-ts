@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { graphql } from "babel-plugin-relay/macro";
+import {
+  RelayEnvironmentProvider,
+  loadQuery,
+  usePreloadedQuery,
+} from "react-relay/hooks";
+import RelayEnvironment from "./RelayEnvironment";
 
-function App() {
+const { Suspense } = React;
+
+// Define a query
+const AuthorsNameQuery = graphql`
+  query AppAuthorsNameQuery {
+    authors {
+      firstName
+    }
+  }
+`;
+
+const preloadedQuery = loadQuery(RelayEnvironment, AuthorsNameQuery, {
+  /* query variables */
+});
+
+function App(props: any) {
+  const data: any = usePreloadedQuery(AuthorsNameQuery, props.preloadedQuery);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div>
+          {data.authors.map((author: { firstName: string }) => {
+            return <p>{author.firstName}</p>;
+          })}
+        </div>
       </header>
     </div>
   );
 }
 
-export default App;
+function AppRoot(props: any) {
+  return (
+    <RelayEnvironmentProvider environment={RelayEnvironment}>
+      <Suspense fallback={"Loading..."}>
+        <App preloadedQuery={preloadedQuery} />
+      </Suspense>
+    </RelayEnvironmentProvider>
+  );
+}
+
+export default AppRoot;

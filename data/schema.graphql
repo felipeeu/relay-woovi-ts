@@ -1,0 +1,45 @@
+"""Exposes a URL that specifies the behavior of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behavior of this scalar."""
+  url: String!
+) on SCALAR
+
+type Author {
+  id: ID
+  firstName: String
+  lastName: String
+  birthRegion: String
+  birthYear: String
+  invention: [ID]
+}
+
+type Invention {
+  id: ID!
+  authorId: [ID]
+  name: String
+  notes: String
+  year: String
+}
+
+type Mutation {
+  """Create an author of an invention"""
+  addAuthor(firstName: String, lastName: String, birthRegion: String, birthYear: String): Author
+
+  """Delete an author of an inventory"""
+  deleteAuthor(id: ID!): Author
+
+  """Add a invention of an existence author"""
+  addInvention(authorId: ID, name: String, notes: String, year: String): Invention
+
+  """Delete a invention for a existence author"""
+  deleteInvention(authorId: ID!): Invention
+}
+
+type Query {
+  """List of all Authors"""
+  authors: [Author]
+
+  """List of all Inventions"""
+  inventions: [Invention]
+}
+
