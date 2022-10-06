@@ -16,13 +16,14 @@
     "react-dom": "^18.2.0",
     "react-relay": "^14.1.0",
     "react-scripts": "5.0.1",
+    "relay-hooks": "^7.2.0",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
     "start": "yarn run relay && react-scripts start",
     "build": "yarn run relay && react-scripts build",
-    "relay": "yarn run relay-compiler --schema schema.graphql --language typescript --src ./src/ --watchman false $@"
+    "relay": "yarn run relay-compiler"
   },
   "eslintConfig": {
     "extends": [
