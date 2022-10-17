@@ -5,6 +5,7 @@ import AppRoot from "./App";
 import RelayEnvironment from "./relay/RelayEnvironment";
 import { RelayEnvironmentProvider } from "react-relay/hooks";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <RelayEnvironmentProvider environment={RelayEnvironment}>
-      <AppRoot />
+      <BrowserRouter>
+        <AppRoot />
+      </BrowserRouter>
     </RelayEnvironmentProvider>
   </React.StrictMode>
 );

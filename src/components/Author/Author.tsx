@@ -1,17 +1,18 @@
-import React from "react";
-import { graphql } from "babel-plugin-relay/macro";
-import { useQuery } from "relay-hooks";
+import { useParams, useNavigate } from "react-router-dom";
+import { useLazyLoadQuery } from "relay-hooks";
+import { AuthorQuery } from "./queries";
 
-const AuthorQuery = graphql`
-  query AuthorQuery($id: ID!) {
-    author(id: $id) {
-      firstName
-    }
-  }
-`;
+export const Author = () => {
+  const { id } = useParams();
+  let navigate = useNavigate();
+  const { data }: any = useLazyLoadQuery(AuthorQuery, { id });
 
-export const Author = (id: any) => {
-  const { data, error, retry, isLoading }: any = useQuery(AuthorQuery, id);
-
-  return <div>Author: {id.id}</div>;
+  return (
+    <div>
+      <button onClick={() => navigate("/")}>back</button>
+      <p>
+        {data.author.firstName} {data.author.lastName}
+      </p>
+    </div>
+  );
 };

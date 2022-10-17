@@ -1,55 +1,32 @@
-import { useCallback, useState } from "react";
-import { graphql } from "babel-plugin-relay/macro";
 import { loadQuery, usePreloadedQuery } from "react-relay";
 import RelayEnvironment from "../../relay/RelayEnvironment";
-import { Author } from "../Author";
+import { useNavigate } from "react-router-dom";
+import { AuthorsQuery } from "./queries";
 
-export const AuthorsQuery = graphql`
-  query AuthorsQuery {
-    authors {
-      id
-      firstName
-      lastName
-      birthRegion
-      birthYear
-    }
-  }
-`;
-
-const preloadedQuery = loadQuery(RelayEnvironment, AuthorsQuery, {
-  /* query variables */
-});
+const preloadedQuery = loadQuery(RelayEnvironment, AuthorsQuery, {});
 
 export const Authors = () => {
-  const [authorId, setAuthorId] = useState("");
   const data: any = usePreloadedQuery(AuthorsQuery, preloadedQuery);
-
-  const showAuthorDetails = useCallback(
-    (id: string) => {
-      setAuthorId(id);
-    },
-    [authorId]
-  );
+  let navigate = useNavigate();
 
   return (
-    <div>
+    <>
       {data.authors.map(
         (
           author: { firstName: string; lastName: string; id: string },
           idx: number
         ) => {
           return (
-            <p
+            <div
               key={`${author.firstName}-${idx}`}
-              onClick={() => showAuthorDetails(author.id)}
+              onClick={() => navigate(`author/${author.id}`)}
               style={{ cursor: "pointer" }}
             >
               {author.firstName} {author.lastName}
-            </p>
+            </div>
           );
         }
       )}
-      <Author id={authorId} />
-    </div>
+    </>
   );
 };

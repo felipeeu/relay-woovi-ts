@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<56f8a84e1500c053bbf56906aa037ed8>>
+ * @generated SignedSource<<39b4481f73828db417530d992f80a652>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,7 +14,10 @@ export type AuthorQuery$variables = {
 };
 export type AuthorQuery$data = {
   readonly author: {
+    readonly birthRegion: string | null;
+    readonly birthYear: string | null;
     readonly firstName: string | null;
+    readonly lastName: string | null;
   } | null;
 };
 export type AuthorQuery = {
@@ -43,6 +46,27 @@ v2 = {
   "kind": "ScalarField",
   "name": "firstName",
   "storageKey": null
+},
+v3 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "lastName",
+  "storageKey": null
+},
+v4 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "birthYear",
+  "storageKey": null
+},
+v5 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "birthRegion",
+  "storageKey": null
 };
 return {
   "fragment": {
@@ -59,7 +83,10 @@ return {
         "name": "author",
         "plural": false,
         "selections": [
-          (v2/*: any*/)
+          (v2/*: any*/),
+          (v3/*: any*/),
+          (v4/*: any*/),
+          (v5/*: any*/)
         ],
         "storageKey": null
       }
@@ -82,6 +109,9 @@ return {
         "plural": false,
         "selections": [
           (v2/*: any*/),
+          (v3/*: any*/),
+          (v4/*: any*/),
+          (v5/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -95,16 +125,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c4b9f267bd6d133a7eff9e5df3c2587f",
+    "cacheID": "8c515b6a10de9d99b81430d83c3dc7f5",
     "id": null,
     "metadata": {},
     "name": "AuthorQuery",
     "operationKind": "query",
-    "text": "query AuthorQuery(\n  $id: ID!\n) {\n  author(id: $id) {\n    firstName\n    id\n  }\n}\n"
+    "text": "query AuthorQuery(\n  $id: ID!\n) {\n  author(id: $id) {\n    firstName\n    lastName\n    birthYear\n    birthRegion\n    id\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "858edf6dc510b27802809d2d9dacaddc";
+(node as any).hash = "66bc297e1c377f48a0626b64acb8f285";
 
 export default node;
