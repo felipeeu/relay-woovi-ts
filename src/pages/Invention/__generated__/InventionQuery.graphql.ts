@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<39b4481f73828db417530d992f80a652>>
+ * @generated SignedSource<<ab3b3007040ce27775df16b3c5e2340b>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,20 +9,19 @@
 // @ts-nocheck
 
 import { ConcreteRequest, Query } from 'relay-runtime';
-export type AuthorQuery$variables = {
+export type InventionQuery$variables = {
   id: string;
 };
-export type AuthorQuery$data = {
-  readonly author: {
-    readonly birthRegion: string | null;
-    readonly birthYear: string | null;
-    readonly firstName: string | null;
-    readonly lastName: string | null;
+export type InventionQuery$data = {
+  readonly invention: {
+    readonly name: string | null;
+    readonly notes: string | null;
+    readonly year: string | null;
   } | null;
 };
-export type AuthorQuery = {
-  response: AuthorQuery$data;
-  variables: AuthorQuery$variables;
+export type InventionQuery = {
+  response: InventionQuery$data;
+  variables: InventionQuery$variables;
 };
 
 const node: ConcreteRequest = (function(){
@@ -44,28 +43,21 @@ v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "firstName",
+  "name": "name",
   "storageKey": null
 },
 v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "lastName",
+  "name": "notes",
   "storageKey": null
 },
 v4 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "birthYear",
-  "storageKey": null
-},
-v5 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "birthRegion",
+  "name": "year",
   "storageKey": null
 };
 return {
@@ -73,20 +65,19 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "AuthorQuery",
+    "name": "InventionQuery",
     "selections": [
       {
         "alias": null,
         "args": (v1/*: any*/),
-        "concreteType": "Author",
+        "concreteType": "Invention",
         "kind": "LinkedField",
-        "name": "author",
+        "name": "invention",
         "plural": false,
         "selections": [
           (v2/*: any*/),
           (v3/*: any*/),
-          (v4/*: any*/),
-          (v5/*: any*/)
+          (v4/*: any*/)
         ],
         "storageKey": null
       }
@@ -98,20 +89,19 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "AuthorQuery",
+    "name": "InventionQuery",
     "selections": [
       {
         "alias": null,
         "args": (v1/*: any*/),
-        "concreteType": "Author",
+        "concreteType": "Invention",
         "kind": "LinkedField",
-        "name": "author",
+        "name": "invention",
         "plural": false,
         "selections": [
           (v2/*: any*/),
           (v3/*: any*/),
           (v4/*: any*/),
-          (v5/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -125,16 +115,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "8c515b6a10de9d99b81430d83c3dc7f5",
+    "cacheID": "719018367d85300fdd8137fbb8657346",
     "id": null,
     "metadata": {},
-    "name": "AuthorQuery",
+    "name": "InventionQuery",
     "operationKind": "query",
-    "text": "query AuthorQuery(\n  $id: ID!\n) {\n  author(id: $id) {\n    firstName\n    lastName\n    birthYear\n    birthRegion\n    id\n  }\n}\n"
+    "text": "query InventionQuery(\n  $id: ID!\n) {\n  invention(id: $id) {\n    name\n    notes\n    year\n    id\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "66bc297e1c377f48a0626b64acb8f285";
+(node as any).hash = "0a3bb5863dd118a3c0615b925fa210e2";
 
 export default node;

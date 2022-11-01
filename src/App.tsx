@@ -1,14 +1,15 @@
+import { Footer, Header } from "components";
 import React from "react";
 import "./App.css";
-import { Home } from "./pages";
+import { Home } from "pages";
 const { Suspense } = React;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Home />
-      </header>
+    <div>
+      <Header />
+      <Home />
+      <Footer />
     </div>
   );
 }

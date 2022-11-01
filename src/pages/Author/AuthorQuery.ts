@@ -7,6 +7,7 @@ export const AuthorQuery = graphql`
       lastName
       birthYear
       birthRegion
+      invention
     }
   }
 `;

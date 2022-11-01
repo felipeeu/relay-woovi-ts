@@ -1,7 +1,7 @@
 import { loadQuery, usePreloadedQuery } from "react-relay";
 import RelayEnvironment from "../../relay/RelayEnvironment";
 import { useNavigate } from "react-router-dom";
-import { AuthorsQuery } from "./queries";
+import { AuthorsQuery } from "./AuthorsQuery";
 
 const preloadedQuery = loadQuery(RelayEnvironment, AuthorsQuery, {});
 
@@ -10,7 +10,7 @@ export const Authors = () => {
   let navigate = useNavigate();
 
   return (
-    <>
+    <div className="container ">
       {data.authors.map(
         (
           author: { firstName: string; lastName: string; id: string },
@@ -18,6 +18,7 @@ export const Authors = () => {
         ) => {
           return (
             <div
+              className="box"
               key={`${author.firstName}-${idx}`}
               onClick={() => navigate(`author/${author.id}`)}
               style={{ cursor: "pointer" }}
@@ -27,6 +28,6 @@ export const Authors = () => {
           );
         }
       )}
-    </>
+    </div>
   );
 };

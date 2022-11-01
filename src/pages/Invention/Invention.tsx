@@ -1,18 +1,15 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useLazyLoadQuery } from "relay-hooks";
-import { AuthorQuery } from "./queries";
+import { InventionQuery } from "./InventionQuery";
 
-export const Author = () => {
+export const Invention = () => {
   const { id } = useParams();
   let navigate = useNavigate();
-  const { data }: any = useLazyLoadQuery(AuthorQuery, { id });
-
+  const { data }: any = useLazyLoadQuery(InventionQuery, { id });
   return (
     <div>
       <button onClick={() => navigate("/")}>back</button>
-      <p>
-        {data.author.firstName} {data.author.lastName}
-      </p>
+      <p>{data.invention.name}</p>
     </div>
   );
 };
