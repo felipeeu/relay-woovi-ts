@@ -7,14 +7,18 @@ export const Header = () => {
         </a>
       </p>
       <p className="level-item has-text-centered">
-        <a className="link is-info">Add Author</a>
+        <a className="link is-info" href="/add_author">
+          Add Author
+        </a>
       </p>
       <p className="level-item has-text-centered">INVENTIONS</p>
       <p className="level-item has-text-centered">
-        <a className="link is-info">Add Invention</a>
+        <a className="link is-info" href="add_invention">
+          Add Invention
+        </a>
       </p>
       <p className="level-item has-text-centered">
-        <a className="link is-info">Contact</a>
+        <a className="link is-info">Invention/Author</a>
       </p>
     </nav>
   );
