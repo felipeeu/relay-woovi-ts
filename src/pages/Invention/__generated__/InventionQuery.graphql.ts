@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ab3b3007040ce27775df16b3c5e2340b>>
+ * @generated SignedSource<<346e12dc1c2b396d946fbc8f7222bb4d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,6 +14,7 @@ export type InventionQuery$variables = {
 };
 export type InventionQuery$data = {
   readonly invention: {
+    readonly image_url: string | null;
     readonly name: string | null;
     readonly notes: string | null;
     readonly year: string | null;
@@ -59,6 +60,13 @@ v4 = {
   "kind": "ScalarField",
   "name": "year",
   "storageKey": null
+},
+v5 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "image_url",
+  "storageKey": null
 };
 return {
   "fragment": {
@@ -77,7 +85,8 @@ return {
         "selections": [
           (v2/*: any*/),
           (v3/*: any*/),
-          (v4/*: any*/)
+          (v4/*: any*/),
+          (v5/*: any*/)
         ],
         "storageKey": null
       }
@@ -102,6 +111,7 @@ return {
           (v2/*: any*/),
           (v3/*: any*/),
           (v4/*: any*/),
+          (v5/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -115,16 +125,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "719018367d85300fdd8137fbb8657346",
+    "cacheID": "44996e22fe143bd6aaf3532e245ee9fa",
     "id": null,
     "metadata": {},
     "name": "InventionQuery",
     "operationKind": "query",
-    "text": "query InventionQuery(\n  $id: ID!\n) {\n  invention(id: $id) {\n    name\n    notes\n    year\n    id\n  }\n}\n"
+    "text": "query InventionQuery(\n  $id: ID!\n) {\n  invention(id: $id) {\n    name\n    notes\n    year\n    image_url\n    id\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "0a3bb5863dd118a3c0615b925fa210e2";
+(node as any).hash = "3338f610967a1624afca3fd6b88c3896";
 
 export default node;

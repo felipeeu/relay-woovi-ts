@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<31c8f254f3a0b92b5fbb75805acb1038>>
+ * @generated SignedSource<<caafaa904465d9cd68f5bc87f0cdd7b7>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -17,6 +17,7 @@ export type AuthorQuery$data = {
     readonly birthRegion: string | null;
     readonly birthYear: string | null;
     readonly firstName: string | null;
+    readonly image_url: string | null;
     readonly invention: ReadonlyArray<string | null> | null;
     readonly lastName: string | null;
   } | null;
@@ -75,6 +76,13 @@ v6 = {
   "kind": "ScalarField",
   "name": "invention",
   "storageKey": null
+},
+v7 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "image_url",
+  "storageKey": null
 };
 return {
   "fragment": {
@@ -95,7 +103,8 @@ return {
           (v3/*: any*/),
           (v4/*: any*/),
           (v5/*: any*/),
-          (v6/*: any*/)
+          (v6/*: any*/),
+          (v7/*: any*/)
         ],
         "storageKey": null
       }
@@ -122,6 +131,7 @@ return {
           (v4/*: any*/),
           (v5/*: any*/),
           (v6/*: any*/),
+          (v7/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -135,16 +145,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "cba269435bc949e650bf761488563a3c",
+    "cacheID": "5230107adfe6269ca555382c34ee23c0",
     "id": null,
     "metadata": {},
     "name": "AuthorQuery",
     "operationKind": "query",
-    "text": "query AuthorQuery(\n  $id: ID!\n) {\n  author(id: $id) {\n    firstName\n    lastName\n    birthYear\n    birthRegion\n    invention\n    id\n  }\n}\n"
+    "text": "query AuthorQuery(\n  $id: ID!\n) {\n  author(id: $id) {\n    firstName\n    lastName\n    birthYear\n    birthRegion\n    invention\n    image_url\n    id\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "b166e950500f74c23009070fbfd658ea";
+(node as any).hash = "4dc515043d5ec92d7c31807c621a1ef7";
 
 export default node;

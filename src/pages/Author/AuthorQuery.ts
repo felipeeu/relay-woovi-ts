@@ -8,6 +8,7 @@ export const AuthorQuery = graphql`
       birthYear
       birthRegion
       invention
+      image_url
     }
   }
 `;

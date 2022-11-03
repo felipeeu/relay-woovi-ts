@@ -6,6 +6,7 @@ export const InventionQuery = graphql`
       name
       notes
       year
+      image_url
     }
   }
 `;
