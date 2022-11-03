@@ -11,6 +11,7 @@ type Author {
   birthRegion: String
   birthYear: String
   invention: [ID]
+  image_url: String
 }
 
 type Invention {
@@ -18,29 +19,30 @@ type Invention {
   name: String
   notes: String
   year: String
+  image_url: String
 }
 
 type Mutation {
   """Create an author of an invention"""
-  addAuthor(firstName: String, lastName: String, birthRegion: String, birthYear: String): Author
+  addAuthor(firstName: String, lastName: String, birthRegion: String, birthYear: String, image_url: String): Author
 
   """Delete an author of an inventory"""
   deleteAuthor(id: ID!): Author
 
   """Update an author"""
-  updateAuthor(id: ID!, firstName: String, lastName: String, birthRegion: String, birthYear: String): Author
+  updateAuthor(id: ID!, firstName: String, lastName: String, birthRegion: String, birthYear: String, image_url: String): Author
 
   """Add existence invention to author"""
   addInventionToAuthor(id: ID!, inventionId: ID!): Author
 
   """Add a invention"""
-  addInvention(name: String, notes: String, year: String): Invention
+  addInvention(name: String, notes: String, year: String, image_url: String): Invention
 
   """Delete a invention """
   deleteInvention(id: ID!): Invention
 
   """Update an invention"""
-  updateInvention(id: ID!, name: String, year: String, notes: String): Invention
+  updateInvention(id: ID!, name: String, year: String, notes: String, image_url: String): Invention
 }
 
 type Query {
