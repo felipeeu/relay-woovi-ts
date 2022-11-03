@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useLazyLoadQuery } from "relay-hooks";
 import { AuthorQuery } from "./AuthorQuery";
+import { Invention } from "components/Invention";
 
 export const Author = () => {
   const { id } = useParams();
@@ -22,12 +23,16 @@ export const Author = () => {
         </h2>
         <div className="container is-flex is-">
           <figure className="image is-128x128">
-            <img src="https://bulma.io/images/placeholders/128x128.png" />
+            <img src={`${data.author.image_url}`} />
           </figure>
           <div className="pl-5">
             <h2 className="has-text-weight-bold">Inventions</h2>
             {data?.author?.invention.map((invention: any) => {
-              return <div key={invention}></div>;
+              return (
+                <div key={invention}>
+                  <Invention id={invention} />
+                </div>
+              );
             })}
           </div>
         </div>
